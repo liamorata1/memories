@@ -1,0 +1,1252 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Little Story of Us ♡</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #100e15;
+  --panel: #191620;
+  --panel-light: #211c2a;
+  --text: #f5edf2;
+  --muted: #b6a8b9;
+  --pink: #e6a8c2;
+  --pink-light: #f4ccdc;
+  --line: rgba(230, 168, 194, .18);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "DM Sans", sans-serif;
+  line-height: 1.8;
+  overflow-x: hidden;
+}
+
+button, a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: var(--pink);
+  color: #171019;
+}
+
+#stars {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: .65;
+}
+
+.progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: var(--pink);
+  z-index: 1000;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  padding: 15px 6%;
+  background: rgba(16, 14, 21, .88);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(15px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-family: "Cormorant Garamond", serif;
+  color: var(--pink-light);
+  font-size: 25px;
+  font-style: italic;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.nav-links a {
+  font-size: 12px;
+  color: var(--muted);
+  transition: color .3s;
+}
+
+.nav-links a:hover {
+  color: var(--pink-light);
+}
+
+.menu-toggle {
+  display: none;
+  color: var(--pink-light);
+  background: none;
+  border: 0;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+main, footer {
+  position: relative;
+  z-index: 1;
+}
+
+section {
+  padding: 110px 8%;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.eyebrow {
+  color: var(--pink);
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+h1, h2, h3, .serif {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 400;
+}
+
+h1 {
+  font-size: clamp(48px, 8vw, 86px);
+  line-height: 1.05;
+  letter-spacing: -2px;
+}
+
+h2 {
+  font-size: clamp(38px, 5vw, 56px);
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-size: 29px;
+  line-height: 1.3;
+}
+
+p {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.hero {
+  min-height: 100vh;
+  padding-top: 130px;
+  padding-bottom: 80px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero h1 span {
+  display: block;
+  color: var(--pink-light);
+  font-style: italic;
+}
+
+.hero-description {
+  max-width: 550px;
+  margin: 25px auto;
+  font-size: 15px;
+}
+
+.couple {
+  width: min(100%, 380px);
+  display: block;
+  margin: 28px auto 10px;
+  filter: drop-shadow(0 0 30px rgba(230, 168, 194, .1));
+}
+
+.primary-link {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 12px 24px;
+  border: 1px solid rgba(230, 168, 194, .55);
+  border-radius: 30px;
+  color: var(--pink-light);
+  font-size: 12px;
+  letter-spacing: 1px;
+  transition: .3s;
+}
+
+.primary-link:hover {
+  background: var(--pink);
+  color: var(--bg);
+  transform: translateY(-2px);
+}
+
+.scroll-note {
+  margin-top: 45px;
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: #8d7e91;
+  text-transform: uppercase;
+}
+
+.center {
+  text-align: center;
+}
+
+.section-intro {
+  max-width: 620px;
+  margin: 0 auto 48px;
+}
+
+.section-intro p {
+  margin-top: 15px;
+}
+
+.soft-panel {
+  background: linear-gradient(135deg, rgba(33, 28, 42, .95), rgba(25, 22, 32, .92));
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: clamp(24px, 5vw, 48px);
+}
+
+.letter {
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+.letter p {
+  margin: 17px 0;
+  font-size: 15px;
+  line-height: 2;
+}
+
+.signature {
+  font-family: "Cormorant Garamond", serif;
+  color: var(--pink-light);
+  font-style: italic;
+  font-size: 25px;
+  margin-top: 30px;
+}
+
+.story-list {
+  max-width: 760px;
+  margin: 50px auto 0;
+  position: relative;
+}
+
+.story-list::before {
+  content: "";
+  position: absolute;
+  left: 14px;
+  top: 12px;
+  bottom: 30px;
+  width: 1px;
+  background: linear-gradient(var(--pink), transparent);
+}
+
+.story-item {
+  position: relative;
+  padding: 0 0 45px 48px;
+}
+
+.story-dot {
+  position: absolute;
+  left: 8px;
+  top: 9px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: var(--pink);
+  box-shadow: 0 0 15px rgba(230, 168, 194, .35);
+}
+
+.story-item h3 {
+  color: var(--pink-light);
+  margin-bottom: 10px;
+}
+
+.story-item p {
+  max-width: 650px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 35px;
+}
+
+.card {
+  background: rgba(33, 28, 42, .7);
+  border: 1px solid var(--line);
+  padding: 25px;
+  border-radius: 14px;
+  transition: transform .3s, border-color .3s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(230, 168, 194, .45);
+}
+
+.card .symbol {
+  font-size: 23px;
+  color: var(--pink);
+  margin-bottom: 10px;
+}
+
+.card h3 {
+  font-size: 25px;
+  color: var(--pink-light);
+  margin-bottom: 8px;
+}
+
+.journal {
+  max-width: 750px;
+  margin: 35px auto 0;
+}
+
+.journal details {
+  background: rgba(33, 28, 42, .72);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  margin-bottom: 12px;
+  padding: 19px 22px;
+}
+
+.journal summary {
+  color: var(--pink-light);
+  cursor: pointer;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 25px;
+}
+
+.journal details p {
+  margin-top: 14px;
+  line-height: 1.9;
+}
+
+.chance-section {
+  background:
+    radial-gradient(ellipse at center, rgba(95, 57, 81, .17), transparent 68%);
+}
+
+.chance-card {
+  max-width: 780px;
+  margin: 0 auto;
+  text-align: center;
+  padding: clamp(25px, 6vw, 60px);
+  border: 1px solid rgba(230, 168, 194, .28);
+  border-radius: 22px;
+  background: rgba(25, 22, 32, .84);
+  box-shadow: 0 0 60px rgba(0, 0, 0, .12);
+}
+
+.chance-card h2 {
+  color: var(--pink-light);
+}
+
+.chance-card .opening {
+  color: var(--pink);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 29px;
+  font-style: italic;
+  margin-bottom: 24px;
+}
+
+.chance-message {
+  text-align: left;
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.chance-message p {
+  margin-bottom: 18px;
+  font-size: 14px;
+  line-height: 2;
+}
+
+.chance-message .closing {
+  color: var(--pink-light);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 25px;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.heart-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 13px 24px;
+  margin-top: 18px;
+  background: transparent;
+  color: var(--pink-light);
+  border: 1px solid rgba(230, 168, 194, .5);
+  border-radius: 30px;
+  cursor: pointer;
+  font-family: "DM Sans", sans-serif;
+  font-size: 12px;
+  transition: .3s;
+}
+
+.heart-button:hover {
+  background: rgba(230, 168, 194, .12);
+  transform: translateY(-2px);
+}
+
+.heart-note {
+  min-height: 28px;
+  margin-top: 15px;
+  color: var(--pink);
+  font-size: 12px;
+}
+
+.promise-list {
+  max-width: 650px;
+  margin: 30px auto 0;
+  text-align: left;
+}
+
+.promise {
+  display: flex;
+  gap: 15px;
+  padding: 17px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.promise span {
+  color: var(--pink);
+  font-size: 18px;
+}
+
+.promise p {
+  line-height: 1.8;
+}
+
+.final-note {
+  text-align: center;
+  padding-top: 80px;
+  padding-bottom: 100px;
+}
+
+.final-note h2 {
+  color: var(--pink-light);
+  font-style: italic;
+}
+
+.final-note p {
+  max-width: 550px;
+  margin: 15px auto;
+}
+
+footer {
+  border-top: 1px solid var(--line);
+  text-align: center;
+  padding: 25px 15px;
+}
+
+footer p {
+  font-size: 11px;
+  color: #88798b;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity .8s ease, transform .8s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 760px) {
+  nav {
+    padding: 13px 5%;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    padding: 20px 6%;
+    background: rgba(16, 14, 21, .98);
+    border-bottom: 1px solid var(--line);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  section {
+    padding: 80px 6%;
+  }
+
+  .hero {
+    min-height: 95vh;
+    padding-top: 115px;
+  }
+
+  .hero h1 {
+    letter-spacing: -1px;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .soft-panel {
+    padding: 24px;
+  }
+
+  .letter p {
+    font-size: 14px;
+  }
+
+  .story-item {
+    padding-left: 38px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+</style>
+</head>
+
+<body>
+<canvas id="stars"></canvas>
+<div class="progress" id="progress"></div>
+
+<nav>
+  <a href="#home" class="logo">a little story of us ♡</a>
+
+  <button class="menu-toggle" id="menuToggle"
+    aria-label="Open navigation" aria-expanded="false">☰</button>
+
+  <div class="nav-links" id="navLinks">
+    <a href="#letter">My Letter</a>
+    <a href="#story">Our Story</a>
+    <a href="#little-things">About You</a>
+    <a href="#growth">My Growth</a>
+    <a href="#last-chance">One Last Chance</a>
+  </div>
+</nav>
+
+<main>
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-content reveal">
+      <p class="eyebrow">for the girl who means so much to me</p>
+
+      <h1>
+        A little story
+        <span>of us.</span>
+      </h1>
+
+      <p class="hero-description">
+        If I could go back to the beginning, I would still want to meet you.
+        But this time, I would want to love you better, too.
+      </p>
+
+      <!-- Simple illustration of two girls -->
+      <svg class="couple" viewBox="0 0 380 260"
+        xmlns="http://www.w3.org/2000/svg" role="img"
+        aria-label="A simple illustration of two girls sitting together under the stars">
+        <defs>
+          <linearGradient id="dress1" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#d994b3"/>
+            <stop offset="100%" stop-color="#8b557b"/>
+          </linearGradient>
+          <linearGradient id="dress2" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#b6a2db"/>
+            <stop offset="100%" stop-color="#705e9c"/>
+          </linearGradient>
+        </defs>
+
+        <circle cx="190" cy="120" r="95"
+          fill="#e6a8c2" opacity=".035"/>
+
+        <g fill="#f4ccdc" opacity=".85">
+          <circle cx="62" cy="53" r="2"/>
+          <circle cx="303" cy="48" r="2"/>
+          <circle cx="326" cy="128" r="1.5"/>
+          <circle cx="87" cy="151" r="1.5"/>
+          <circle cx="271" cy="186" r="2"/>
+          <path d="M310 87 l3 7 7 3 -7 3 -3 7 -3 -7 -7 -3 7 -3z"/>
+          <path d="M75 93 l2 5 5 2 -5 2 -2 5 -2 -5 -5 -2 5 -2z"/>
+        </g>
+
+        <!-- Girl on the left -->
+        <path d="M105 218 Q104 169 119 143
+          Q134 125 151 143 Q171 168 171 218Z"
+          fill="url(#dress1)"/>
+
+        <path d="M118 145 Q100 120 112 92
+          Q122 64 149 70 Q175 76 173 108
+          Q170 131 153 145Z"
+          fill="#4b3046"/>
+
+        <ellipse cx="145" cy="111" rx="27" ry="32"
+          fill="#efc2ad"/>
+
+        <path d="M117 110 Q108 74 139 66
+          Q174 61 177 93 L170 111
+          Q162 91 145 91 Q132 101 117 110Z"
+          fill="#4b3046"/>
+
+        <path d="M121 111 Q112 148 139 155
+          Q119 137 128 119Z" fill="#4b3046"/>
+
+        <circle cx="136" cy="111" r="1.8" fill="#392630"/>
+        <circle cx="155" cy="111" r="1.8" fill="#392630"/>
+        <path d="M139 124 Q146 129 153 123"
+          fill="none" stroke="#b46f79" stroke-width="1.5"
+          stroke-linecap="round"/>
+
+        <!-- Girl on the right -->
+        <path d="M207 218 Q209 169 225 144
+          Q243 125 261 145 Q280 170 279 218Z"
+          fill="url(#dress2)"/>
+
+        <path d="M222 145 Q201 122 207 91
+          Q214 65 244 68 Q272 70 274 101
+          Q274 128 257 146Z"
+          fill="#342b48"/>
+
+        <ellipse cx="241" cy="110" rx="27" ry="32"
+          fill="#dca98f"/>
+
+        <path d="M214 108 Q205 75 234 66
+          Q268 61 273 91 L266 111
+          Q256 88 241 90 Q226 99 214 108Z"
+          fill="#342b48"/>
+
+        <path d="M263 105 Q280 134 250 154
+          Q270 130 256 116Z" fill="#342b48"/>
+
+        <circle cx="232" cy="110" r="1.8" fill="#392630"/>
+        <circle cx="250" cy="110" r="1.8" fill="#392630"/>
+        <path d="M234 123 Q241 128 248 122"
+          fill="none" stroke="#a86170" stroke-width="1.5"
+          stroke-linecap="round"/>
+
+        <!-- Hands gently meeting -->
+        <path d="M159 172 Q184 191 205 172"
+          fill="none" stroke="#efc2ad" stroke-width="9"
+          stroke-linecap="round"/>
+
+        <path d="M87 219 Q190 238 294 219"
+          fill="none" stroke="#e6a8c2" stroke-width="1"
+          opacity=".35"/>
+      </svg>
+
+      <a class="primary-link" href="#letter">Read this when you're ready ♡</a>
+      <p class="scroll-note">take your time · no pressure</p>
+    </div>
+  </section>
+
+  <!-- LETTER -->
+  <section id="letter">
+    <div class="container">
+      <div class="section-intro center reveal">
+        <p class="eyebrow">01 · from my heart</p>
+        <h2>A letter for you</h2>
+        <p>
+          There are things I wish I had handled better.
+          This is me trying to say them honestly.
+        </p>
+      </div>
+
+      <div class="soft-panel letter reveal">
+        <p>Hi, love.</p>
+
+        <p>
+          Hindi ko alam kung paano mo matatanggap itong ginawa ko,
+          or kung gugustuhin mo pa bang basahin. Pero gusto ko pa ring
+          sabihin yung mga bagay na matagal ko nang gustong sabihin sa'yo.
+        </p>
+
+        <p>
+          I'm sorry. Alam kong nasaktan kita at nabigyan kita ng dahilan
+          para magduda sa akin. Alam kong hindi sapat ang pagsabi ng sorry
+          para maibalik agad yung tiwala at peace of mind na nawala sa'yo.
+          Hindi ko rin gustong i-minimize yung naramdaman mo.
+        </p>
+
+        <p>
+          You mattered to me then, and you still matter to me now.
+          Hindi naging laro para sa akin yung nararamdaman ko sa'yo.
+          Pero naiintindihan ko na kahit genuine ang feelings ko,
+          hindi ibig sabihin noon na hindi na kita kayang masaktan.
+        </p>
+
+        <p>
+          I can't undo what happened, and I can't ask you to pretend
+          that it never happened. Ang kaya ko lang gawin ay aminin
+          yung pagkakamali ko, matuto mula rito, at baguhin yung mga
+          bagay na kailangan kong baguhin sa sarili ko.
+        </p>
+
+        <p>
+          Hindi ko ito ginagawa para ma-guilty ka o para maramdaman
+          mong kailangan mo akong bigyan ng sagot. Gusto ko lang malaman
+          mo na mahalaga sa akin yung naramdaman mo, pati yung sakit
+          na naidulot ko sa'yo.
+        </p>
+
+        <p>
+          Thank you for the moments you shared with me, for the times
+          you made me smile, and for letting me know a part of you.
+          I will always be grateful that our paths crossed.
+        </p>
+
+        <p>
+          I'm sorry that I didn't take better care of what we had.
+          I wish I had done some things differently, especially when
+          it mattered most.
+        </p>
+
+        <p class="signature">With all my sincerity,</p>
+        <p class="signature">the girl who is still learning to do better ♡</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- STORY -->
+  <section id="story">
+    <div class="container">
+      <div class="section-intro center reveal">
+        <p class="eyebrow">02 · once upon a time</p>
+        <h2>How our story began</h2>
+        <p>
+          A little reminder of the story that became important to me.
+        </p>
+      </div>
+
+      <div class="story-list">
+        <article class="story-item reveal">
+          <span class="story-dot"></span>
+          <h3>When my world felt messy</h3>
+          <p>
+            We met at a time when my world felt like it was falling apart, when I felt like I had no one to turn to. Back then, I had no idea that meeting you would become one of the most meaningful parts of my life. I never expected that someone I met during one of my hardest times would become someone I would grow so attached to, someone I would come to miss this much, and someone I would wish I had loved a little better.
+          </p>
+        </article>
+
+        <article class="story-item reveal">
+          <span class="story-dot"></span>
+          <h3>When talking to you felt different</h3>
+          <p>
+            Little by little, I got to know you. Our simple conversations became little reasons for me to smile, and there were moments when I found myself wanting to tell you even the smallest things about my day. Somehow, the simplest things felt more meaningful when I got to share them with you. Without even realizing it, you became someone I wanted to talk to, someone I wanted to share my little moments with, and someone who made my ordinary days feel a little less ordinary.
+          </p>
+        </article>
+
+        <article class="story-item reveal">
+          <span class="story-dot"></span>
+          <h3>When you became someone special</h3>
+          <p>
+            I didn't even realize when you became part of my everyday life. Our simple conversations, the way I found myself worrying about you, and how I always wanted to spend time with you, even in the smallest ways, slowly became things I looked forward to. You became part of my routine without me even noticing, and somewhere along the way, talking to you stopped being just another part of my day. It became one of the parts I cherished the most.
+          </p>
+        </article>
+
+        <article class="story-item reveal">
+          <span class="story-dot"></span>
+          <h3>When I realized love needs more than feelings</h3>
+          <p>
+            I've learned that a relationship isn't just about love. It also takes honesty, consistency, respect, accountability, and the willingness to truly listen to each other. Love may be what brings two people together, but it's the way they treat each other, the choices they make, and the effort they put in that help them grow together. And now, I understand that having genuine feelings for someone doesn't always mean you know how to love them the way they deserve. Sometimes, you have to learn, reflect, and become better, especially when your actions have hurt someone you never wanted to lose.
+          </p>
+        </article>
+
+        <article class="story-item reveal">
+          <span class="story-dot"></span>
+          <h3>Where I am now</h3>
+          <p>
+            I can't change the past, but I can take responsibility for my part in what happened. I want to become someone who understands that my actions have consequences, not just someone who focuses on what I meant or intended. I'm learning that even when I never meant to hurt someone, the pain I caused is still real. And if I truly want to become better, I have to be willing to acknowledge my mistakes, learn from them, and show through my actions that I'm changing, rather than expecting my intentions alone to make things right.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- LITTLE THINGS ABOUT HER -->
+  <section id="little-things">
+    <div class="container">
+      <div class="section-intro center reveal">
+        <p class="eyebrow">03 · the little things</p>
+        <h2>Things I appreciate about you</h2>
+        <p>
+          Not just the big moments. Sometimes, it's the little things
+          that make a person unforgettable.
+        </p>
+      </div>
+
+      <div class="cards">
+        <article class="card reveal">
+          <div class="symbol">♡</div>
+          <h3>Your heart</h3>
+          <p>
+            I appreciate the person you are, the way you care, and the
+            parts of yourself that you allow people to see.
+          </p>
+        </article>
+
+        <article class="card reveal">
+          <div class="symbol">✦</div>
+          <h3>Your own world</h3>
+          <p>
+            I admire that you have your own thoughts, dreams, boundaries,
+            and ways of understanding things. You deserve room to be yourself.
+          </p>
+        </article>
+
+        <article class="card reveal">
+          <div class="symbol">☾</div>
+          <h3>The comfort you brought</h3>
+          <p>
+            There were moments when simply talking to you made an ordinary
+            day feel a little less heavy. Those moments meant something to me.
+          </p>
+        </article>
+
+        <article class="card reveal">
+          <div class="symbol">∞</div>
+          <h3>The memories we made</h3>
+          <p>
+            I value the conversations, the laughter, and the little moments
+            that became part of our story. I'm grateful I got to experience them.
+          </p>
+        </article>
+      </div>
+
+      <p class="center reveal" style="margin-top:24px;font-size:12px;">
+        These are only a few things I appreciate. You are more than I can
+        fit into a page.
+      </p>
+    </div>
+  </section>
+
+  <!-- GROWTH JOURNAL -->
+  <section id="growth">
+    <div class="container">
+      <div class="section-intro center reveal">
+        <p class="eyebrow">04 · things I need to learn</p>
+        <h2>My growth journal</h2>
+        <p>
+          I don't want to promise that I'll suddenly become perfect.
+          I want to be honest about the work I need to do.
+        </p>
+      </div>
+
+      <div class="journal">
+        <details class="reveal">
+          <summary>Taking responsibility</summary>
+          <p>
+            I need to learn to own my choices without making excuses
+            or focusing only on what I intended. My intentions don't
+            erase the effect of my actions on someone I care about.
+          </p>
+        </details>
+
+        <details class="reveal">
+          <summary>Being honest and consistent</summary>
+          <p>
+            Trust is not something I can demand. It is built through
+            repeated honest choices, keeping my word, and being consistent
+            even when it's difficult or uncomfortable.
+          </p>
+        </details>
+
+        <details class="reveal">
+          <summary>Understanding your feelings</summary>
+          <p>
+            I want to listen without immediately defending myself.
+            I need to make room for your feelings, even when they are
+            painful for me to hear, and respect the boundaries you set.
+          </p>
+        </details>
+
+        <details class="reveal">
+          <summary>Changing beyond an apology</summary>
+          <p>
+            I know that a long message or a thoughtful website cannot
+            prove that I have changed. That takes time, self-awareness,
+            and actual decisions that match what I say.
+          </p>
+        </details>
+
+        <details class="reveal">
+          <summary>Respecting your space</summary>
+          <p>
+            Loving someone also means respecting their choice, even when
+            that choice hurts. I don't want my feelings to become a reason
+            for you to feel pressured or responsible for me.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- LAST CHANCE -->
+  <section id="last-chance" class="chance-section">
+    <div class="container">
+      <div class="section-intro center reveal">
+        <p class="eyebrow">05 · one thing I still hope for</p>
+        <h2>If you give me one last chance</h2>
+        <p>
+          This is not a demand or an expectation. Just an honest hope
+          that I want to express to you.
+        </p>
+      </div>
+
+      <div class="chance-card reveal">
+  <p class="opening">If you give me one last chance, love...</p>
+
+  <div class="chance-message">
+    <p>
+      I'm not asking you to forget what happened right away,
+      to go back to the way things were as if no one ever got hurt,
+      or to trust me again just because I've apologized.
+      I know that the things that have been broken aren't so easily
+      put back together.
+    </p>
+
+    <p>
+      If you give me one last chance, I want to earn your trust
+      again, slowly and honestly. I don't want my words to be the
+      only thing you hear from me. I want to learn how to be more
+      careful with your feelings, how to be honest with you, and
+      how to stand by the things I say.
+    </p>
+
+    <p>
+      I can't promise that I'll be perfect because I know there are
+      still things I need to learn. But I want to take accountability
+      when I make mistakes, listen when I've hurt you, and make real
+      changes even when there's no guarantee that you'll let me
+      back into your life.
+    </p>
+
+    <p>
+      I miss you. I miss talking to you and sharing the little things
+      with you. But I don't want to use how much I miss you as a
+      reason to pressure you into coming back. Your feelings matter,
+      and so do your peace of mind and your decision.
+    </p>
+
+    <p>
+      If there's still even a little room in your heart to consider
+      us again, I would be grateful for the opportunity to start
+      slowly, without rushing you. We don't have to pretend that
+      nothing happened. We can be honest about what hurt us and
+      what needs to change.
+    </p>
+
+    <p>
+      And if you no longer feel the same way, I know I have to
+      respect that, too. I won't tell you that you owe me another
+      chance just because I love you or because I'm sorry.
+      You're allowed to choose what's right for you.
+    </p>
+
+    <p>
+      I just want you to know that what I felt for you was real.
+      I'm sorry for the ways I hurt you, and I'm sorry I didn't
+      take better care of what we had when I had the chance.
+    </p>
+
+    <p>
+      I can't promise you a perfect future. All I can do is be
+      honest about my hopes, take responsibility for my past,
+      and work on becoming a better person from this point forward.
+    </p>
+
+    <p class="closing">
+      If there's still a chance for us,<br>
+      I would want to do things differently this time. ♡
+    </p>
+  </div>
+</div>
+
+        <button class="heart-button" id="heartButton" type="button">
+          <span>♡</span> A little reminder
+        </button>
+
+        <p class="heart-note" id="heartNote" aria-live="polite"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROMISES -->
+  <section id="promises">
+    <div class="container">
+      <div class="section-intro center reveal">
+        <p class="eyebrow">06 · not just words</p>
+        <h2>What I want to practice</h2>
+        <p>
+          These aren't conditions for you to come back.
+          They're things I need to work on because they matter.
+        </p>
+      </div>
+
+      <div class="promise-list">
+        <div class="promise reveal">
+          <span>♡</span>
+          <p>
+            To be honest, even when telling the truth feels uncomfortable.
+          </p>
+        </div>
+
+        <div class="promise reveal">
+          <span>♡</span>
+          <p>
+            To understand the impact of my actions instead of relying
+            only on what I meant to do.
+          </p>
+        </div>
+
+        <div class="promise reveal">
+          <span>♡</span>
+          <p>
+            To communicate with care and respect your boundaries.
+          </p>
+        </div>
+
+        <div class="promise reveal">
+          <span>♡</span>
+          <p>
+            To make real changes consistently, not only when I'm afraid
+            of losing someone.
+          </p>
+        </div>
+
+        <div class="promise reveal">
+          <span>♡</span>
+          <p>
+            To accept that trust takes time, and forgiveness cannot be forced.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL NOTE -->
+  <section class="final-note">
+    <div class="container reveal">
+      <p class="eyebrow">one last thing</p>
+      <h2>Thank you for being part of my story.</h2>
+
+      <p>
+        Whatever happens next, I'm grateful that I got to know you.
+        I hope life continues to be gentle with you, that you reach your
+        dreams, and that you never forget that you deserve honesty,
+        peace, and a love that makes you feel safe.
+      </p>
+
+      <p style="color:var(--pink);margin-top:28px;">
+        Take all the time you need. ♡
+      </p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>made with sincerity, not perfection ♡</p>
+</footer>
+
+<script>
+/* Mobile navigation */
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+menuToggle.addEventListener("click", () => {
+  const isOpen = navLinks.classList.toggle("open");
+  menuToggle.setAttribute("aria-expanded", String(isOpen));
+  menuToggle.textContent = isOpen ? "×" : "☰";
+});
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("open");
+    menuToggle.setAttribute("aria-expanded", "false");
+    menuToggle.textContent = "☰";
+  });
+});
+
+/* Scroll progress */
+const progressBar = document.getElementById("progress");
+
+function updateProgress() {
+  const scrollableHeight =
+    document.documentElement.scrollHeight - window.innerHeight;
+
+  const progress = scrollableHeight > 0
+    ? (window.scrollY / scrollableHeight) * 100
+    : 0;
+
+  progressBar.style.width = `${progress}%`;
+}
+
+window.addEventListener("scroll", updateProgress, { passive: true });
+updateProgress();
+
+/* Fade-in sections */
+const revealElements = document.querySelectorAll(".reveal");
+
+if ("IntersectionObserver" in window) {
+  const observer = new IntersectionObserver((entries, currentObserver) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        currentObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  revealElements.forEach(element => observer.observe(element));
+} else {
+  revealElements.forEach(element => element.classList.add("visible"));
+}
+
+/* Gentle star background */
+const canvas = document.getElementById("stars");
+const ctx = canvas.getContext("2d");
+
+let stars = [];
+let animationFrame;
+
+function createStars() {
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+  canvas.width = window.innerWidth * dpr;
+  canvas.height = window.innerHeight * dpr;
+  canvas.style.width = `${window.innerWidth}px`;
+  canvas.style.height = `${window.innerHeight}px`;
+
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+  const count = Math.min(
+    Math.floor((window.innerWidth * window.innerHeight) / 6500),
+    150
+  );
+
+  stars = Array.from({ length: count }, () => ({
+    x: Math.random() * window.innerWidth,
+    y: Math.random() * window.innerHeight,
+    radius: Math.random() * 1.4 + 0.3,
+    alpha: Math.random() * 0.55 + 0.15,
+    speed: Math.random() * 0.006 + 0.002
+  }));
+}
+
+function drawStars() {
+  ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+
+  stars.forEach(star => {
+    star.alpha += star.speed;
+
+    if (star.alpha > 0.75 || star.alpha < 0.15) {
+      star.speed *= -1;
+    }
+
+    ctx.beginPath();
+    ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(244, 204, 220, ${star.alpha})`;
+    ctx.fill();
+  });
+
+  animationFrame = requestAnimationFrame(drawStars);
+}
+
+createStars();
+drawStars();
+
+window.addEventListener("resize", () => {
+  cancelAnimationFrame(animationFrame);
+  createStars();
+  drawStars();
+});
+
+/* Heart button: a small interactive message */
+const heartButton = document.getElementById("heartButton");
+const heartNote = document.getElementById("heartNote");
+
+const reminders = [
+  "You don't owe me a reply. I just hope you know that I'm sincerely sorry. ♡",
+  "Real change takes time, and I know I have to show it through my actions.",
+  "Your peace matters. Take all the time and space you need.",
+  "I will always be grateful for the moments we shared. ♡"
+];
+
+let reminderIndex = 0;
+
+heartButton.addEventListener("click", () => {
+  heartNote.textContent = reminders[reminderIndex];
+  reminderIndex = (reminderIndex + 1) % reminders.length;
+});
+</script>
+</body>
+</html>
